@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  bind9:
+    build:
+      context: .
+      dockerfile: ./master/Dockerfile
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "127.0.0.1:953:953/tcp"
+    volumes:
+      - bind9_etc_bind:/etc/bind
+      - bind9_var_cache_bind:/var/cache/bind
+      - bind9_var_lib_bind:/var/lib/bind
+      - bind9_var_log:/var/log
+    #restart: always
+
+
+volumes:
+  bind9_etc_bind:
+  bind9_var_cache_bind:
+  bind9_var_lib_bind:
+  bind9_var_log:

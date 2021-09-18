@@ -1,0 +1,24 @@
+example.internal. IN SOA ns1.example.internal. hostmaster.example.internal. (
+    1   ; Serial. Increment with every change to this file.
+    1d  ; Refresh after 1 day.
+    1h  ; Retry after 1 hour
+    1w  ; Expire after 1 week
+    1d  ; Negative caching TTL of 1 day
+)
+
+;
+; NS Records
+;
+example.internal. IN NS ns1.example.internal.
+example.internal. IN NS ns2.example.internal.
+
+;
+; Public Address and Alias Records
+;
+
+
+;
+; Internal Address and Alias Records
+;
+ns1.example.internal. IN A 192.168.0.253
+ns2.example.internal. IN A 192.168.0.253 ; Would ideally be your backup server
